@@ -1,6 +1,7 @@
 close all
 clc
 
+sol = @(t) 2 -exp(-10*t);
 
 f = @(t,y) 10*(2 - y);
 tspan = [0 3];
@@ -9,7 +10,7 @@ h2 = 0.15;
 h3 = 0.05;
 y0 = 1;
 
-sol = @(t) 2 -exp(-10*t); 
+ 
 
 tspan = [0, 3];
 
@@ -49,7 +50,7 @@ valorBeuler = y4(lookup(t4, 0.3))
 valorCN = y5(lookup(t5, 0.3))
 
 errorBeuler = abs(valorAnalitico - valorBeuler)
-errorCN = abs(valorCN - valorBeuler)
+errorCN = abs(valorAnalitico - valorCN)
 
 if errorBeuler < errorCN
   disp("Beuler mas precios")
